@@ -1,0 +1,139 @@
+/* Στυλ για το σώμα της σελίδας με φόντο */
+body.n {
+    background-image: url('bg1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Στυλ για το γενικό κείμενο */
+.co {
+    color: rgb(7, 10, 2);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Στυλ για το κεφάλαιο της σελίδας */
+header {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    color: rgb(10, 10, 10);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #27ae60;
+}
+
+/* Στυλ για τις ενότητες */
+section {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Στυλ για τη συλλογή εικόνων */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gallery img {
+    width: 30%;
+    margin: 5px;
+    border: 3px solid #78817c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Στυλ για το υποσέλιδο */
+footer {
+    background-color: rgb(240, 196, 1);
+    color: rgb(107, 106, 106);
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    font-size: x-large;
+    font-weight: bolder;
+    position: relative;
+    bottom: 0;
+}
+
+footer.s {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    text-align: center;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+/* Στυλ για τη φόρμα σύνδεσης */
+.login form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.login form label {
+    font-weight: bold;
+}
+
+.login form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.login form button {
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login form button:hover {
+    background-color: #219150;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
