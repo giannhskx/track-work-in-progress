@@ -1,45 +1,4 @@
-<?php
-// Start the session
-session_start();
-require('index.php'); // Ensure this file sets up $conn as the mysqli connection
 
-// Handle the login form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-        $username = trim($_POST['username']);
-        $password = trim($_POST['password']);
-
-        // Prepare and execute the query using prepared statements to prevent SQL injection
-        $query = "SELECT * FROM `user` WHERE username=?";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        // Check if a user is found
-        if ($result->num_rows == 1) {
-            $user = $result->fetch_assoc();
-
-            // Verify the password
-            if (password_verify($password, $user['password'])) {
-                $_SESSION['username'] = $username;
-                header("Location: ".$_SERVER['PHP_SELF']); // Redirect to avoid resubmission
-                exit();
-            } else {
-                $error = "Λάθος στοιχεία σύνδεσης.";
-            }
-        } else {
-            $error = "Λάθος στοιχεία σύνδεσης.";
-        }
-        $stmt->close();
-    } else {
-        $error = "Παρακαλώ συμπληρώστε όλα τα πεδία.";
-    }
-}
-
-// Check if the user is logged in
-$loggedIn = isset($_SESSION['username']);
-?>
 
 <!DOCTYPE html>
 <html lang="el">
@@ -82,19 +41,15 @@ $loggedIn = isset($_SESSION['username']);
             <p>Διεύθυνση: Δημοτικό Στάδιο Ιλίου, 'Ιλιον</p>
             <p>Τηλέφωνο: 693 706 7630</p>
         </section>
-        <section class="login">
-            <h2>Σύνδεση</h2>
-            <form id="loginForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                <label for="username">Όνομα Χρήστη:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">Κωδικός Πρόσβασης:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Σύνδεση</button>
-            </form>
-            <div id="error">
-                <?php if (isset($error)) { echo htmlspecialchars($error); } ?>
-            </div> 
-        </section>
+            <section class="login">
+    <h2>Σύνδεση</h2>
+    <form action="verify_email.php" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <input type="submit" value="Verify Email">
+    </form>
+</section>
+
     </main>
     <footer class="s">
         <p>&copy; 2024 Ερμής Ιλίου. Όλα τα δικαιώματα κατοχυρωμένα.</p>
