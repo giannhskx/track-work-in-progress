@@ -11,9 +11,12 @@
     <header>
         <h1>Ερμής Ηλίου Στίβος</h1>
         <nav>
+        
+        
             <a href="index.php">Αρχική</a>
-            <a href="about.html">Σχετικά</a>
             <a href="runner.html">Αθλητές</a>
+            <a href="about.html">Σχετικά</a>
+            
         </nav>
     </header>
     <main>
