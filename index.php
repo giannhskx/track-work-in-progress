@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ερμής Ηλίου Στίβος</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <!-- <script src="script.js" defer></script> -->
 </head>
 <body class="n">
     <header>
         <h1>Ερμής Ηλίου Στίβος</h1>
         <nav>
-            <a href="index.html">Αρχική</a>
+            <a href="index.php">Αρχική</a>
             <a href="about.html">Σχετικά</a>
             <a href="runner.html">Αθλητές</a>
         </nav>
@@ -41,14 +41,26 @@
         </section>
         <section class="login">
             <h2>Σύνδεση</h2>
-            <form id="loginForm">
+            <form id="loginForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <label for="username">Όνομα Χρήστη:</label>
                 <input type="text" id="username" name="username">
                 <label for="password">Κωδικός Πρόσβασης:</label>
                 <input type="password" id="password" name="password">
                 <button type="submit">Σύνδεση</button>
             </form>
-            <p id="error" class="error"></p>
+            <div id="error">
+                <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $username = trim($_POST["username"]);
+                    $password = trim($_POST["password"]);
+                    if (empty($username) || empty($password)) {
+                        echo "Παρακαλώ συμπληρώστε όλα τα πεδία.";
+                    } else {
+                        echo "Επιτυχής σύνδεση";
+                    }
+                }
+                ?>
+            </div> 
         </section>
     </main>
     <footer class="s">
