@@ -88,6 +88,7 @@ footer {
     bottom: 0;
 }
 
+/* Στυλ για το υποσέλιδο (εναλλακτικό) */
 footer.s {
     background-color: rgba(255, 255, 255, 0.8);
     color: #333;
@@ -136,4 +137,51 @@ footer.s {
 .error {
     color: red;
     font-weight: bold;
+}
+
+/* Responsive Στυλ για κινητές συσκευές */
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    section {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .gallery img {
+        width: 45%;
+    }
+
+    footer {
+        font-size: large;
+        padding: 10px;
+    }
+}
+
+/* Responsive Στυλ για πολύ μικρές οθόνες (π.χ. κινητά τηλέφωνα) */
+@media (max-width: 480px) {
+    header nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .gallery img {
+        width: 90%;
+    }
+
+    section h2 {
+        font-size: 1.2em;
+    }
+
+    .login form {
+        align-items: center;
+    }
+
+    .login form input,
+    .login form button {
+        width: 100%;
+    }
 }
