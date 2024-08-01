@@ -41,19 +41,17 @@
             <p>Διεύθυνση: Δημοτικό Στάδιο Ιλίου, 'Ιλιον</p>
             <p>Τηλέφωνο: 693 706 7630</p>
         </section>
-            <section class="login">
-    <h2>Σύνδεση</h2>
-    <form action="verify_email.php" method="post">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <input type="submit" value="Verify Email">
-    </form>
-</section>
-
+        <section class="login">
+            <h2>Σύνδεση</h2>
+            <form action="verify_email.php" method="post">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <input type="submit" value="Verify Email">
+            </form>
+        </section>
     </main>
     <footer class="s">
         <p>&copy; 2024 Ερμής Ιλίου. Όλα τα δικαιώματα κατοχυρωμένα.</p>
     </footer>
 </body>
 </html>
-
